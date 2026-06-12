@@ -2,7 +2,7 @@
 <html>
 <head>
   <style>
-    @page { size: 5cm 3cm; margin: 0; }
+    @page { size: 5cm 3cm landscape; margin: 0; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       display: flex;
@@ -28,9 +28,10 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const data = params.get("data");
+    const nombre = params.get("nombre") || data;
     document.getElementById("qr").src =
       "https://api.qrserver.com/v1/create-qr-code/?size=400x400&margin=0&data=" + data;
-    document.getElementById("nombre").textContent = data;
+    document.getElementById("nombre").textContent = nombre;
   </script>
 </body>
 </html>
